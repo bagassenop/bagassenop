@@ -1,42 +1,39 @@
-name: Generate Snake
+name: Generate Snake Animation
 
 on:
-  # run automatically every 24 hours
   schedule:
-    - cron: "0 */24 * * *" 
+    # Runs at 12am UTC every day
+    - cron: "0 0 * * *"
   
-  # allows to manually run the job at any time
+  # This allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
-  # run on every push on the master branch
-  push:
-    branches:
-    - master
-    
-  
 
 jobs:
-  generate:
-    permissions: 
-      contents: write
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
+
     steps:
-      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
-        uses: Platane/snk/svg-only@v3
+      # Checks out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+
+      # Generates the snake game board
+      - uses: Platane/snk@v3
+        id: snake-gif
         with:
+          # Your GitHub username
           github_user_name: ${{ github.repository_owner }}
+          # Size of the generated GIF
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          # Size of the generated SVG
+          svg_out_path: dist/github-contribution-grid-snake.svg
+          # Set to dark for dark mode users
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-          
-          
-      # push the content of <build_dir> to a branch
-      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
-      - name: push github-contribution-grid-snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+            dist/github-contribution-grid-snake.gif
+
+      # Pushes the changes to a branch called output
+      - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
