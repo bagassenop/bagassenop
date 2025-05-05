@@ -17,7 +17,8 @@ Here are some ideas to get you started:
 
 <!-- For dark mode users -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-contribution-grid-snake.svg" />
-  <img alt="github-snake" src="https://github.com/bagassenop/bagassenop/blob/output/github-contribution-grid-snake.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-snake.svg" />
+  <img alt="github-snake" src="https://github.com/bagassenop/bagassenop/blob/output/github-snake.svg" />
 </picture>
+<!-- Orange snake on ocean theme -->
