@@ -19,6 +19,6 @@ Here are some ideas to get you started:
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/bagassenop/bagassenop/blob/output/github-snake.svg" />
-  <img alt="github-snake" src="https://github.com/bagassenop/bagassenop/blob/output/github-contribution-grid-snake.gif" />
+  <img alt="github-snake" src="https://github.com/bagassenop/bagassenop/blob/output/github-snake-dark.svg" />
 </picture>
 <!-- Orange snake on ocean theme -->
